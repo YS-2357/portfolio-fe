@@ -1,16 +1,29 @@
-# React + Vite
+# 정영선 포트폴리오 (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 개요
+- 단일 페이지 포트폴리오. 섹션: Hero, 소개, 프로젝트, 경험, 스킬, 연락처.
+- 현재 내용은 작업 중이며, 대부분 “수정중/제작중” 플레이스홀더 상태입니다.
 
-Currently, two official plugins are available:
+## 실행
+```
+npm install   # 또는 npm ci
+npm run dev   # http://localhost:5173
+npm run build
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 데이터/스타일 위치
+- 데이터 및 섹션 마크업: `src/App.jsx`
+- 전역 스타일 및 레이아웃: `src/App.css`
+- 전역 기본 스타일: `src/index.css`
+- 히어로 패턴 이미지: `src/assets/placeholder-hero.svg`
 
-## React Compiler
+## 연락처
+- 이메일: joungyoungsun20@gmail.com
+- GitHub: https://github.com/YS-2357
+- LinkedIn: http://www.linkedin.com/in/youngsun-joung-5b0584345
+- Blog: https://velog.io/@ys2357/posts
+- 전화: 010-8766-4095
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 빌드/환경 메모
+- Windows에서 `npm ci && npm run build` 정상 동작 확인.
+- Linux 환경에서 rollup 바이너리 누락 시 `rm -rf node_modules && npm ci` 또는 `npm i -D @rollup/rollup-linux-x64-gnu`로 해결.
