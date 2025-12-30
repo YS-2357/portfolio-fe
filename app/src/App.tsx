@@ -31,6 +31,28 @@ function App() {
     phone: '010-8766-4095',
   })
 
+  const parseAwardSummary = (text: string) => {
+    const line = text
+      .split('\n')
+      .map((value) => value.trim())
+      .find((value) => value && !value.startsWith('#') && value.startsWith('-'))
+    if (!line) return ''
+    const raw = line.replace(/^-\\s*/, '')
+    const fields = raw.split('|').reduce<Record<string, string>>((acc, part) => {
+      const [key, ...rest] = part.split(':')
+      if (!key || rest.length === 0) return acc
+      acc[key.trim()] = rest.join(':').trim()
+      return acc
+    }, {})
+    const date = fields['일자']?.slice(0, 4) || ''
+    const title = fields['수상명'] || ''
+    const grade = fields['등급'] || ''
+    const note = fields['비고'] || ''
+    const parts = [date && `${date}년`, title, grade && grade]
+    const main = parts.filter(Boolean).join(' ')
+    return note ? `${main} (${note})` : main
+  }
+
   useEffect(() => {
     fetchText('/content/resume/one-line-intro.md')
       .then((text) => {
@@ -64,12 +86,12 @@ function App() {
       .catch(() => {})
 
     Promise.all([
-      fetchText('/content/awards/bootcamp/summary.md'),
-      fetchText('/content/awards/university/summary.md'),
+      fetchText('/content/awards/bootcamp/awards.md'),
+      fetchText('/content/awards/university/awards.md'),
     ])
       .then(([bootcamp, university]) => {
-        const nextBootcamp = bootcamp.trim()
-        const nextUniversity = university.trim()
+        const nextBootcamp = parseAwardSummary(bootcamp)
+        const nextUniversity = parseAwardSummary(university)
         setAwards((prev) => ({
           bootcamp: nextBootcamp || prev.bootcamp,
           university: nextUniversity || prev.university,
@@ -107,10 +129,40 @@ function App() {
           <p className="hero__eyebrow">AI · RAG</p>
           <h1>정영선 포트폴리오</h1>
           <div className="hero__cta">
-            <button className="btn btn--primary">프로젝트 보기</button>
+            <button className="btn btn--primary-solar">프로젝트 보기</button>
             <a className="btn" href="/content/resume/resume.pdf" target="_blank" rel="noreferrer">
               이력서 보기
             </a>
+          </div>
+          <div className="contact hero__contact">
+            <div>
+              이메일:{' '}
+              <a href={`mailto:${contact.email}`} className="contact__link">
+                {contact.email}
+              </a>
+            </div>
+            <div className="contact__badges">
+              <a className="badge badge--soft" href={contact.github} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+              <a
+                className="badge badge--soft"
+                href={contact.linkedin}
+                target="_blank"
+                rel="noreferrer"
+              >
+                LinkedIn
+              </a>
+              <a className="badge badge--soft" href={contact.blog} target="_blank" rel="noreferrer">
+                블로그
+              </a>
+            </div>
+            <div>
+              전화:{' '}
+              <a href={`tel:${contact.phone}`} className="contact__link">
+                {contact.phone}
+              </a>
+            </div>
           </div>
         </div>
         <div className="hero__card">
@@ -149,7 +201,7 @@ function App() {
         <h2>프로젝트 하이라이트</h2>
         <div className="grid grid--3">
           <div className="card">
-            <span className="tag">AI</span>
+            <span className="badge badge--accent">AI</span>
             <h3>알약 탐지 AI</h3>
             <p>{projectSummaries.pill}</p>
             <a className="link" href="/projects/codeit/pill-recognition/star">
@@ -157,7 +209,7 @@ function App() {
             </a>
           </div>
           <div className="card">
-            <span className="tag">RAG</span>
+            <span className="badge badge--accent">RAG</span>
             <h3>RFP RAG 시스템</h3>
             <p>{projectSummaries.rfp}</p>
             <a className="link" href="/projects/codeit/rfp-rag/star">
@@ -165,7 +217,7 @@ function App() {
             </a>
           </div>
           <div className="card">
-            <span className="tag">GEO</span>
+            <span className="badge badge--accent">GEO</span>
             <h3>상세페이지 자동 생성</h3>
             <p>{projectSummaries.geo}</p>
             <a className="link" href="/projects/codeit/geo-product-page/star">
@@ -223,14 +275,14 @@ function App() {
       <section className="section">
         <h2>기술 스택</h2>
         <div className="tags">
-          <span>Python</span>
-          <span>FastAPI</span>
-          <span>LangChain</span>
-          <span>React</span>
-          <span>TypeScript</span>
-          <span>Firebase</span>
-          <span>YOLO</span>
-          <span>Chroma</span>
+          <span className="badge badge--soft">Python</span>
+          <span className="badge badge--soft">FastAPI</span>
+          <span className="badge badge--soft">LangChain</span>
+          <span className="badge badge--soft">React</span>
+          <span className="badge badge--soft">TypeScript</span>
+          <span className="badge badge--soft">Firebase</span>
+          <span className="badge badge--soft">YOLO</span>
+          <span className="badge badge--soft">Chroma</span>
         </div>
       </section>
 
@@ -245,41 +297,7 @@ function App() {
         </div>
       </section>
 
-      <section className="section">
-        <h2>연락처</h2>
-        <div className="contact">
-          <div>
-            이메일:{' '}
-            <a href={`mailto:${contact.email}`} className="contact__link">
-              {contact.email}
-            </a>
-          </div>
-          <div>
-            GitHub:{' '}
-            <a href={contact.github} className="contact__link">
-              {contact.github}
-            </a>
-          </div>
-          <div>
-            LinkedIn:{' '}
-            <a href={contact.linkedin} className="contact__link">
-              {contact.linkedin}
-            </a>
-          </div>
-          <div>
-            블로그:{' '}
-            <a href={contact.blog} className="contact__link">
-              {contact.blog}
-            </a>
-          </div>
-          <div>
-            전화:{' '}
-            <a href={`tel:${contact.phone}`} className="contact__link">
-              {contact.phone}
-            </a>
-          </div>
-        </div>
-      </section>
+      
     </div>
   )
 }

@@ -4,7 +4,7 @@
   --card: #ffffff;
   --text: #0f172a;
   --muted: #475569;
-  --accent: #f59e0b;
+  --accent: #f2c14e;
   --border: #e2e8f0;
 }
 
@@ -141,19 +141,6 @@ body {
   gap: 10px;
 }
 
-.tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #fff7ed;
-  color: #c2410c;
-  font-size: 12px;
-  font-weight: 600;
-  width: fit-content;
-}
-
 .btn {
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -164,9 +151,34 @@ body {
   cursor: pointer;
 }
 
-.btn--primary {
-  background: var(--accent);
-  border-color: var(--accent);
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  width: fit-content;
+}
+
+.badge--accent {
+  background: #fff3d6;
+  color: #8a5a00;
+  border-color: #f7d77f;
+}
+
+.badge--soft {
+  background: #f8fafc;
+  color: #334155;
+  border-color: #e2e8f0;
+}
+
+
+.btn--primary-solar {
+  background: #f2c14e;
+  border-color: #e0b341;
   color: #1f2937;
 }
 
@@ -246,12 +258,6 @@ body {
 }
 
 .tags span {
-  border: 1px solid var(--border);
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: #f8fafc;
-  color: var(--text);
-  font-weight: 600;
   font-size: 12px;
 }
 
@@ -281,6 +287,38 @@ body {
   color: var(--muted);
 }
 
+.hero__contact {
+  margin-top: 20px;
+  color: #e2e8f0;
+}
+
+.hero__contact .contact__link {
+  color: #e2e8f0;
+}
+
+.hero__contact .contact__link:hover {
+  color: #ffffff;
+}
+
+.hero__contact .contact__badges .badge {
+  background: rgba(248, 250, 252, 0.12);
+  border-color: rgba(248, 250, 252, 0.3);
+  color: #e2e8f0;
+}
+
+.hero__contact .contact__badges .badge:hover {
+  background: rgba(248, 250, 252, 0.22);
+}
+.hero__contact {
+  margin-top: 20px;
+}
+
+.contact__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .contact__link {
   color: var(--text);
   text-decoration: none;
@@ -288,6 +326,53 @@ body {
 }
 
 .contact__link:hover {
+  text-decoration: underline;
+}
+
+.awards {
+  display: grid;
+  gap: 24px;
+}
+
+.awards__section h2 {
+  margin: 0 0 12px;
+}
+
+
+.awards__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.awards__item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  background: #ffffff;
+  display: grid;
+  gap: 6px;
+}
+
+.awards__title {
+  font-weight: 700;
+}
+
+.awards__meta,
+.awards__note {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.awards__link {
+  color: var(--night-2);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.awards__link:hover {
   text-decoration: underline;
 }
 
