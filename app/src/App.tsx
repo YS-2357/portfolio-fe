@@ -171,7 +171,7 @@ function App() {
               </a>
               <a
                 className="badge badge--soft"
-                href="https://yslab-32e49.web.app/"
+                href="https://youngsun-joung.web.app/"
                 target="_blank"
                 rel="noreferrer"
               >

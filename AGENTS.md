@@ -10,7 +10,7 @@ React + TypeScript 정적 포트폴리오 사이트이며 Firebase Hosting에 �
 
 ## 커밋 규칙
 - 일반적인 컨벤션을 사용한다: `type: 한글 요약`.
-- 파일별로 나눠 커밋한다.
+- 별도 지시가 없으면 변경사항을 묶어서 `git add`/`git commit`까지 자동으로 진행한다.
 
 ## 참고 문서
 - 앱 구조와 라우팅: `reference/architecture/system-overview.md`
