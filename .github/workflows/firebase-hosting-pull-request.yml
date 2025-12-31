@@ -18,6 +18,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_YSLAB_32E49 }}
-          projectId: yslab-32e49
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_YOUNGSUN_JOUNG }}
+          projectId: youngsun-joung
           entryPoint: app
