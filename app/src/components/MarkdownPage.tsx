@@ -66,7 +66,7 @@ export default function MarkdownPage() {
       </header>
 
       <section className="section markdown">
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} components={{ h1: () => null }}>
           {content || '내용이 없습니다.'}
         </ReactMarkdown>
       </section>

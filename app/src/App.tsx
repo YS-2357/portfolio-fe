@@ -13,6 +13,7 @@ const fetchText = async (url: string) => {
 
 function App() {
   const [intro, setIntro] = useState('문제 정의에서 배포까지 실행하는 개발자')
+  const [chatOpen, setChatOpen] = useState(false)
   const [summaryItems, setSummaryItems] = useState<string[]>([])
   const [projectSummaries, setProjectSummaries] = useState({
     pill: 'YOLOv8 최고 성능 mAP@0.5 0.99334 달성',
@@ -123,20 +124,32 @@ function App() {
   }, [])
 
   return (
+    <>
     <div className="landing">
       <header className="hero">
         <div className="hero__copy">
           <p className="hero__eyebrow">AI · RAG</p>
           <h1>정영선 포트폴리오</h1>
           <div className="hero__cta">
-            <button className="btn btn--primary-solar">프로젝트 보기</button>
+            <a className="btn btn--primary-solar" href="/projects">
+              프로젝트 보기
+            </a>
             <a className="btn" href="/content/resume/resume.pdf" target="_blank" rel="noreferrer">
               이력서 보기
             </a>
+            <a className="btn" href="/about">
+              About Me
+            </a>
           </div>
           <div className="contact hero__contact">
-            <div>
-              이메일:{' '}
+            <div className="contact__row">
+              <span className="contact__label">전화</span>
+              <a href={`tel:${contact.phone}`} className="contact__link">
+                {contact.phone}
+              </a>
+            </div>
+            <div className="contact__row">
+              <span className="contact__label">이메일</span>
               <a href={`mailto:${contact.email}`} className="contact__link">
                 {contact.email}
               </a>
@@ -157,16 +170,12 @@ function App() {
                 블로그
               </a>
             </div>
-            <div>
-              전화:{' '}
-              <a href={`tel:${contact.phone}`} className="contact__link">
-                {contact.phone}
-              </a>
-            </div>
           </div>
         </div>
         <div className="hero__card">
-          <div className="hero__avatar" />
+          <div className="hero__avatar">
+            <span className="hero__initials">YS</span>
+          </div>
           <div className="hero__meta">
             <div className="meta__desc">{intro}</div>
           </div>
@@ -174,7 +183,9 @@ function App() {
       </header>
 
       <section className="section">
-        <h2>요약</h2>
+        <div className="section__header">
+          <h2>요약</h2>
+        </div>
         <ul className="summary-list">
           {summaryItems.map((item) => (
             <li key={item}>{item}</li>
@@ -183,7 +194,9 @@ function App() {
       </section>
 
       <section className="section">
-        <h2>핵심 역량</h2>
+        <div className="section__header">
+          <h2>핵심 역량</h2>
+        </div>
         <ul className="core-lines">
           <li>
             <strong>문제 정의</strong>: 요구사항을 구조화하고 핵심 지표를 설계
@@ -198,37 +211,53 @@ function App() {
       </section>
 
       <section className="section">
-        <h2>프로젝트 하이라이트</h2>
-        <div className="grid grid--3">
-          <div className="card">
+        <div className="section__header">
+          <h2>프로젝트</h2>
+          <a className="btn btn--primary-solar" href="/projects">
+            모두 보기
+          </a>
+        </div>
+        <ul className="project-list">
+          <li>
             <span className="badge badge--accent">AI</span>
-            <h3>알약 탐지 AI</h3>
-            <p>{projectSummaries.pill}</p>
+            <div>
+              <strong>알약 탐지 AI</strong>
+              <p>{projectSummaries.pill}</p>
+            </div>
             <a className="link" href="/projects/codeit/pill-recognition/star">
               상세 보기
             </a>
-          </div>
-          <div className="card">
+          </li>
+          <li>
             <span className="badge badge--accent">RAG</span>
-            <h3>RFP RAG 시스템</h3>
-            <p>{projectSummaries.rfp}</p>
+            <div>
+              <strong>RFP RAG 시스템</strong>
+              <p>{projectSummaries.rfp}</p>
+            </div>
             <a className="link" href="/projects/codeit/rfp-rag/star">
               상세 보기
             </a>
-          </div>
-          <div className="card">
+          </li>
+          <li>
             <span className="badge badge--accent">GEO</span>
-            <h3>상세페이지 자동 생성</h3>
-            <p>{projectSummaries.geo}</p>
+            <div>
+              <strong>상세페이지 자동 생성</strong>
+              <p>{projectSummaries.geo}</p>
+            </div>
             <a className="link" href="/projects/codeit/geo-product-page/star">
               상세 보기
             </a>
-          </div>
-        </div>
+          </li>
+        </ul>
       </section>
 
       <section className="section">
-        <h2>경험</h2>
+        <div className="section__header">
+          <h2>경력사항</h2>
+          <a className="btn btn--primary-solar" href="/experience">
+            모두 보기
+          </a>
+        </div>
         <div className="stack">
           <div className="row">
             <div className="row__title">(주)인톡 | 인턴 / AI 개발자</div>
@@ -242,7 +271,12 @@ function App() {
       </section>
 
       <section className="section">
-        <h2>학력/교육</h2>
+        <div className="section__header">
+          <h2>학력/교육</h2>
+          <a className="btn btn--primary-solar" href="/education">
+            모두 보기
+          </a>
+        </div>
         <div className="stack">
           <div className="row">
             <div className="row__title">코드잇 스프린트 AI 엔지니어 01기</div>
@@ -260,20 +294,22 @@ function App() {
       </section>
 
       <section className="section">
-        <h2>수상</h2>
+        <div className="section__header">
+          <h2>수상</h2>
+          <a className="btn btn--primary-solar" href="/awards">
+            모두 보기
+          </a>
+        </div>
         <ul className="core-lines">
           <li>{awards.bootcamp}</li>
           <li>{awards.university}</li>
         </ul>
-        <div className="section__actions">
-          <a className="btn" href="/awards">
-            전체 수상 보기
-          </a>
-        </div>
       </section>
 
       <section className="section">
-        <h2>기술 스택</h2>
+        <div className="section__header">
+          <h2>기술 스택</h2>
+        </div>
         <div className="tags">
           <span className="badge badge--soft">Python</span>
           <span className="badge badge--soft">FastAPI</span>
@@ -286,19 +322,30 @@ function App() {
         </div>
       </section>
 
-      <section className="section">
-        <h2>챗봇 안내</h2>
-        <div className="chat">
-          <p>질문하면 관련 페이지로 바로 안내합니다.</p>
+    </div>
+    <button className="chat-toggle" type="button" onClick={() => setChatOpen((prev) => !prev)}>
+      {chatOpen ? '닫기' : '챗봇'}
+    </button>
+    {chatOpen && (
+      <div className="chat-panel" role="dialog" aria-label="챗봇">
+        <div className="chat-panel__header">
+          <span>포트폴리오 챗봇</span>
+          <button className="chat-panel__close" onClick={() => setChatOpen(false)} type="button">
+            닫기
+          </button>
+        </div>
+        <div className="chat-panel__body">
+          <p>
+            RAG 챗봇 (구현 중) — 질문하면 관련 페이지로 안내합니다.
+          </p>
           <div className="chat__input">
             <span className="chat__placeholder">예: RAG 프로젝트 설명해줘</span>
-            <button className="btn btn--primary">전송</button>
+            <button className="btn btn--primary-solar">전송</button>
           </div>
         </div>
-      </section>
-
-      
-    </div>
+      </div>
+    )}
+    </>
   )
 }
 
