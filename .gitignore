@@ -21,6 +21,7 @@ app/*.local
 app/.env
 app/.env.*
 app/.vite/
+app/.firebase/
 
 # Editor directories and files
 .vscode/*
