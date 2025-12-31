@@ -128,7 +128,7 @@ function App() {
     <div className="landing">
       <header className="hero">
         <div className="hero__copy">
-          <p className="hero__eyebrow">AI · RAG</p>
+          <p className="hero__eyebrow">M.S. in Mathematics · AI Engineer</p>
           <h1>정영선 포트폴리오</h1>
           <div className="hero__cta">
             <a className="btn btn--primary-solar" href="/projects">
@@ -168,6 +168,14 @@ function App() {
               </a>
               <a className="badge badge--soft" href={contact.blog} target="_blank" rel="noreferrer">
                 블로그
+              </a>
+              <a
+                className="badge badge--soft"
+                href="https://yslab-32e49.web.app/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                포트폴리오
               </a>
             </div>
           </div>
