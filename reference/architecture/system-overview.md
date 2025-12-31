@@ -12,8 +12,13 @@ React + TypeScript 정적 포트폴리오 사이트와 플로팅 챗봇 UI를 �
 - 챗봇이 연결해야 할 정식 URL을 명시한다.
 - 현재 라우트:
   - `/`: 랜딩 페이지
-  - `/awards`: 전체 수상 목록
+  - `/projects`: 프로젝트 목록
+  - `/projects/codeit/:project`: 프로젝트 상세(기본 페이지)
   - `/projects/codeit/:project/:page`: 프로젝트 상세(`page`는 `star` 또는 `report`)
+  - `/about`: 소개
+  - `/experience`: 경력 사항
+  - `/education`: 학력/교육
+  - `/awards`: 전체 수상 목록
 
 ## 정적 자산
 - 정적 콘텐츠: `app/public/content/`
@@ -23,6 +28,5 @@ React + TypeScript 정적 포트폴리오 사이트와 플로팅 챗봇 UI를 �
 - 화면 측면에 플로팅 UI로 고정.
 - 답변에 관련 페이지 링크를 포함할 수 있어야 한다.
 
-## TODO
-- 콘텐츠 파일 경로 확정.
-- 라우트 목록과 토픽 매핑 추가.
+## 유지 사항
+- 콘텐츠 파일 경로와 라우트 목록이 바뀌면 즉시 갱신한다.
