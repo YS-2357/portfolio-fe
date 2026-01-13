@@ -15,3 +15,6 @@
 ## Deployment
 - `reference/processes/firebase-hosting.md`: project ID, build output, CI/CD.
 - `reference/processes/landing-implementation.md`: UI wiring rules and content fetch paths.
+
+## Execution rule
+- 문제 해결 전 "문제 정의 → 원인 → 해결 방안" 순으로 요약한다.
