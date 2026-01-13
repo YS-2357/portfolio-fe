@@ -23,6 +23,7 @@ React + TypeScript 정적 포트폴리오 사이트와 플로팅 챗봇 UI를 �
 ## 정적 자산
 - 정적 콘텐츠: `app/public/content/`
 - 프로젝트 이미지: `app/public/asset/images/projects/`
+- Notion 원본 보관: `app/public/content/_notion/`
 
 ## 챗 위젯
 - 화면 측면에 플로팅 UI로 고정.

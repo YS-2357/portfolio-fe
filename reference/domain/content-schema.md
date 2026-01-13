@@ -21,3 +21,15 @@
   - `codeit/<project>/summary.md`
   - `codeit/<project>/star.md`
   - `codeit/<project>/report.md`
+
+## Notion 원본 보관
+- `app/public/content/_notion/` 아래에 Notion 동기화 결과를 유지한다.
+- 포트폴리오 UI는 `_notion` 경로를 직접 렌더링하지 않는다.
+
+## 포트폴리오 정제 구조(후속 적용)
+- `app/public/content/projects/<slug>/`
+  - `summary.md`
+  - `highlights.md`
+  - `stack.md`
+  - `links.md`
+  - `teaser.md`
