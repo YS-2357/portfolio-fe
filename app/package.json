@@ -7,9 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "notion:pull": "tsx scripts/notion-sync.ts pull",
+    "notion:pull:force": "tsx scripts/notion-sync.ts pull --force",
+    "notion:pull:projects": "tsx scripts/notion-sync.ts pull --db=projects",
+    "notion:pull:intalk": "tsx scripts/notion-sync.ts pull --db=intalk",
+    "notion:status": "tsx scripts/notion-sync.ts status"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "dotenv": "^16.4.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-markdown": "^10.1.0",
@@ -19,6 +26,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
+    "tsx": "^4.19.2",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",

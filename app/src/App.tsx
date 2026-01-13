@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { projects } from './data/projects'
 import './App.css'
 
 const fetchText = async (url: string) => {
@@ -15,11 +16,7 @@ function App() {
   const [intro, setIntro] = useState('문제 정의에서 배포까지 실행하는 개발자')
   const [chatOpen, setChatOpen] = useState(false)
   const [summaryItems, setSummaryItems] = useState<string[]>([])
-  const [projectSummaries, setProjectSummaries] = useState({
-    pill: 'YOLOv8 최고 성능 mAP@0.5 0.99334 달성',
-    rfp: '문서 요약·질의응답 자동화로 검색시간 90% 절감',
-    geo: '제작 소요 6h→10m, 비용 약 10만 원 절감',
-  })
+  const [projectSummaries, setProjectSummaries] = useState<Record<string, string>>({})
   const [awards, setAwards] = useState({
     bootcamp: '제7회 K-디지털 해커톤 장관상: 우수상, 전체 389팀 중 3등',
     university: '전국 대학생 수학 경시대회: 동상, 제1분야',
@@ -54,6 +51,23 @@ function App() {
     return note ? `${main} (${note})` : main
   }
 
+  const getSummaryLine = (text: string, fallback: string) => {
+    const line = text
+      .split('\n')
+      .map((value) => value.trim())
+      .find(
+        (value) =>
+          value &&
+          !value.startsWith('```') &&
+          !value.startsWith('#') &&
+          !value.startsWith('##') &&
+          !value.startsWith('###') &&
+          !value.startsWith('작성 예정'),
+      )
+    if (!line) return fallback
+    return line.replace(/^[-*]+\s*/, '').trim() || fallback
+  }
+
   useEffect(() => {
     fetchText('/content/resume/one-line-intro.md')
       .then((text) => {
@@ -72,17 +86,14 @@ function App() {
       })
       .catch(() => {})
 
-    Promise.all([
-      fetchText('/content/projects/codeit/pill-recognition/summary.md'),
-      fetchText('/content/projects/codeit/rfp-rag/summary.md'),
-      fetchText('/content/projects/codeit/geo-product-page/summary.md'),
-    ])
-      .then(([pill, rfp, geo]) => {
-        setProjectSummaries((prev) => ({
-          pill: pill.trim() || prev.pill,
-          rfp: rfp.trim() || prev.rfp,
-          geo: geo.trim() || prev.geo,
-        }))
+    Promise.all(projects.map((project) => fetchText(project.summaryPath)))
+      .then((texts) => {
+        const next: Record<string, string> = {}
+        texts.forEach((text, index) => {
+          const project = projects[index]
+          next[project.slug] = getSummaryLine(text, project.title)
+        })
+        setProjectSummaries(next)
       })
       .catch(() => {})
 
@@ -167,7 +178,7 @@ function App() {
                 LinkedIn
               </a>
               <a className="badge badge--soft" href={contact.blog} target="_blank" rel="noreferrer">
-                블로그
+                Velog
               </a>
               <a
                 className="badge badge--soft"
@@ -175,7 +186,15 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                포트폴리오
+                Portfolio
+              </a>
+              <a
+                className="badge badge--soft"
+                href="https://sapphire-cart-f52.notion.site/Portfolio-19f01c050cec803f9c63e917f0b568ec?pvs=74"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Notion
               </a>
             </div>
           </div>
@@ -226,36 +245,18 @@ function App() {
           </a>
         </div>
         <ul className="project-list">
-          <li>
-            <span className="badge badge--accent">AI</span>
-            <div>
-              <strong>알약 탐지 AI</strong>
-              <p>{projectSummaries.pill}</p>
-            </div>
-            <a className="link" href="/projects/codeit/pill-recognition/star">
-              상세 보기
-            </a>
-          </li>
-          <li>
-            <span className="badge badge--accent">RAG</span>
-            <div>
-              <strong>RFP RAG 시스템</strong>
-              <p>{projectSummaries.rfp}</p>
-            </div>
-            <a className="link" href="/projects/codeit/rfp-rag/star">
-              상세 보기
-            </a>
-          </li>
-          <li>
-            <span className="badge badge--accent">GEO</span>
-            <div>
-              <strong>상세페이지 자동 생성</strong>
-              <p>{projectSummaries.geo}</p>
-            </div>
-            <a className="link" href="/projects/codeit/geo-product-page/star">
-              상세 보기
-            </a>
-          </li>
+          {projects.map((project) => (
+            <li key={project.slug}>
+              <span className="badge badge--accent">{project.label}</span>
+              <div>
+                <strong>{project.title}</strong>
+                <p>{projectSummaries[project.slug] || project.title}</p>
+              </div>
+              <a className="link" href={`/projects/codeit/${project.slug}/star`}>
+                상세 보기
+              </a>
+            </li>
+          ))}
         </ul>
       </section>
 

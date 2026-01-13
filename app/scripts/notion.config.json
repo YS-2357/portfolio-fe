@@ -1,0 +1,30 @@
+{
+  "databases": {
+    "projects": {
+      "id": "20601c050cec801989a8c0858281eba4"
+    },
+    "pill-collab": {
+      "id": "2e701c050cec8096861bcf3207462ac9"
+    },
+    "rfp-collab": {
+      "id": "2e701c050cec80ec86e3edad8901d2b3"
+    },
+    "geo-collab": {
+      "id": "22201c050cec802eab5be4c9e5dfddf3"
+    }
+  },
+  "pages": {
+    "pill-report": {
+      "id": "1c701c050cec804b9d72d7347c6dee3f",
+      "out": "public/content/_notion/projects/pill-recognition/report"
+    },
+    "rfp-report": {
+      "id": "20601c050cec804aa533dba4e52f2bb8",
+      "out": "public/content/_notion/projects/rfp-rag/report"
+    },
+    "geo-report": {
+      "id": "22201c050cec816187fae4700f6f999c",
+      "out": "public/content/_notion/projects/geo-product-page/report"
+    }
+  }
+}
