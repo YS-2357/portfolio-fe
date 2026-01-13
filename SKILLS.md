@@ -6,3 +6,4 @@
 - firebase-hosting: Firebase Hosting 설정/배포.
 - asset-management: 이미지/로고 경로, 네이밍, 적용 규칙 관리.
 - landing-ui-tuning: 랜딩 페이지 섹션/레이아웃/강조 규칙 조정.
+- doc-updater: 코드/콘텐츠 변경에 맞춰 reference/skills 문서를 갱신.
