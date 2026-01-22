@@ -61,7 +61,7 @@ export default function ProjectsPage() {
           {projects.map((project) => (
             <div className="card project-card" key={project.slug}>
               <h2>{project.title}</h2>
-              <p>{content[project.slug] || '내용이 없습니다.'}</p>
+              <p>{project.cardSummary || content[project.slug] || '내용이 없습니다.'}</p>
               <div className="project-card__actions">
                 <Link className="btn btn--primary-solar" to={`/projects/codeit/${project.slug}`}>
                   상세 보기

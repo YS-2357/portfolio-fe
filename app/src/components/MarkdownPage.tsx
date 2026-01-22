@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { projects } from '../data/projects'
 
 const fetchText = async (url: string) => {
   const res = await fetch(url)
@@ -26,6 +27,7 @@ export default function MarkdownPage() {
   const { project, page } = useParams<Params>()
   const [content, setContent] = useState('')
   const currentPage = (page as PageName) || 'star'
+  const meta = projects.find((item) => item.slug === project)
 
   useEffect(() => {
     if (!project) return
@@ -42,7 +44,8 @@ export default function MarkdownPage() {
       <header className="hero">
         <div className="hero__copy">
           <p className="hero__eyebrow">프로젝트</p>
-          <h1>{project}</h1>
+          <h1>{meta?.title || project}</h1>
+          {meta?.subtitle ? <p className="hero__subtitle">{meta.subtitle}</p> : null}
           <div className="hero__cta">
             <NavLink className="btn" to={`/projects/codeit/${project}`}>
               인포그래픽

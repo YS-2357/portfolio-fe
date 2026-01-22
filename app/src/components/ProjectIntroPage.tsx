@@ -17,6 +17,7 @@ export default function ProjectIntroPage() {
         <div className="hero__copy">
           <p className="hero__eyebrow">프로젝트</p>
           <h1>{meta.title}</h1>
+          <p className="hero__subtitle">{meta.subtitle}</p>
           <div className="hero__cta">
             <Link className="btn btn--primary-solar" to={`/projects/codeit/${meta.slug}/star`}>
               요약

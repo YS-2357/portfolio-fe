@@ -250,7 +250,7 @@ function App() {
               <span className="badge badge--accent">{project.label}</span>
               <div>
                 <strong>{project.title}</strong>
-                <p>{projectSummaries[project.slug] || project.title}</p>
+                <p>{project.cardSummary || projectSummaries[project.slug] || project.title}</p>
               </div>
               <a className="link" href={`/projects/codeit/${project.slug}`}>
                 상세 보기
