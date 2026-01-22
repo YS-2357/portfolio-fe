@@ -44,6 +44,9 @@ export default function MarkdownPage() {
           <p className="hero__eyebrow">프로젝트</p>
           <h1>{project}</h1>
           <div className="hero__cta">
+            <NavLink className="btn" to={`/projects/codeit/${project}`}>
+              인포그래픽
+            </NavLink>
             <NavLink
               className={({ isActive }) => `btn${isActive ? ' btn--primary' : ''}`}
               to={`/projects/codeit/${project}/star`}

@@ -252,7 +252,7 @@ function App() {
                 <strong>{project.title}</strong>
                 <p>{projectSummaries[project.slug] || project.title}</p>
               </div>
-              <a className="link" href={`/projects/codeit/${project.slug}/star`}>
+              <a className="link" href={`/projects/codeit/${project.slug}`}>
                 상세 보기
               </a>
             </li>

@@ -63,7 +63,7 @@ export default function ProjectsPage() {
               <h2>{project.title}</h2>
               <p>{content[project.slug] || '내용이 없습니다.'}</p>
               <div className="project-card__actions">
-                <Link className="btn btn--primary-solar" to={`/projects/codeit/${project.slug}/star`}>
+                <Link className="btn btn--primary-solar" to={`/projects/codeit/${project.slug}`}>
                   상세 보기
                 </Link>
               </div>

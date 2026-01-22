@@ -9,6 +9,7 @@ import ProjectsPage from './components/ProjectsPage.tsx'
 import ExperiencePage from './components/ExperiencePage.tsx'
 import EducationPage from './components/EducationPage.tsx'
 import MarkdownPage from './components/MarkdownPage.tsx'
+import ProjectIntroPage from './components/ProjectIntroPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -21,7 +22,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/education" element={<EducationPage />} />
         <Route path="/awards" element={<AwardsPage />} />
         <Route path="/projects/codeit/:project/:page" element={<MarkdownPage />} />
-        <Route path="/projects/codeit/:project" element={<MarkdownPage />} />
+        <Route path="/projects/codeit/:project" element={<ProjectIntroPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
