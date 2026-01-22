@@ -12,6 +12,7 @@
 3) `app/src/App.tsx`에서 `LandingExample` 사용
 4) 필요 시 `app/src/index.css`에 전역 폰트만 추가
 5) 라우터 구성
+   - 프로젝트 인포그래픽: `/projects/codeit/:project`
    - 프로젝트 상세: `/projects/codeit/:project/:page`
    - 수상 전체: `/awards`
 
@@ -29,3 +30,4 @@
 ## 정적 자산
 - 프로젝트 이미지: `app/public/asset/images/projects/`
 - 경로 예: `/asset/images/projects/codeit/<project>/<file>`
+- 인포그래픽 예: `/asset/images/projects/codeit/<project>/infographic.png`

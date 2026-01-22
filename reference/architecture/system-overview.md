@@ -13,7 +13,7 @@ React + TypeScript 정적 포트폴리오 사이트와 플로팅 챗봇 UI를 �
 - 현재 라우트:
   - `/`: 랜딩 페이지
   - `/projects`: 프로젝트 목록
-  - `/projects/codeit/:project`: 프로젝트 상세(기본 페이지)
+  - `/projects/codeit/:project`: 프로젝트 상세(인포그래픽 페이지)
   - `/projects/codeit/:project/:page`: 프로젝트 상세(`page`는 `star` 또는 `report`)
   - `/about`: 소개
   - `/experience`: 경력 사항
@@ -24,6 +24,7 @@ React + TypeScript 정적 포트폴리오 사이트와 플로팅 챗봇 UI를 �
 - 정적 콘텐츠: `app/public/content/`
 - 프로젝트 이미지: `app/public/asset/images/projects/`
 - Notion 원본 보관: `app/public/content/_notion/`
+  - 인포그래픽: `/asset/images/projects/codeit/<project>/infographic.png`
 
 ## 챗 위젯
 - 화면 측면에 플로팅 UI로 고정.
