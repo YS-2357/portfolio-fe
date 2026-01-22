@@ -41,22 +41,12 @@ export default function ExperiencePage() {
       <section className="section">
         {blocks.length === 0 ? (
           <div className="doc-blocks">
-            <article className="doc-block doc-block--media">
-              <div className="doc-media">
-                <img src="/asset/images/intalk/infographic.png" alt="Intalk infographic" />
-              </div>
-            </article>
             <article className="doc-block">
               <p className="doc-paragraph">내용이 없습니다.</p>
             </article>
           </div>
         ) : (
           <div className="doc-blocks">
-            <article className="doc-block doc-block--media">
-              <div className="doc-media">
-                <img src="/asset/images/intalk/infographic.png" alt="Intalk infographic" />
-              </div>
-            </article>
             {blocks.map((block) => (
               <article className="doc-block" key={block.heading}>
                 <div className="doc-header">
@@ -66,6 +56,11 @@ export default function ExperiencePage() {
                   </div>
                   {block.period && <div className="doc-period">{block.period}</div>}
                 </div>
+                {block.title.includes('(주)인톡') && (
+                  <div className="doc-media">
+                    <img src="/asset/images/intalk/infographic.png" alt="Intalk infographic" />
+                  </div>
+                )}
                 {block.paragraphs.map((text) => (
                   <p className="doc-paragraph" key={text}>
                     {text}
