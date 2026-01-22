@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { parseMarkdownBlocks } from './markdownBlocks'
 
 const fetchText = async (url: string) => {
@@ -28,9 +28,12 @@ export default function ExperiencePage() {
           <p className="hero__eyebrow">Experience</p>
           <h1>경력사항</h1>
           <div className="hero__cta">
-            <Link className="btn" to="/">
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/experience" end>
+              경력
+            </NavLink>
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/" end>
               랜딩
-            </Link>
+            </NavLink>
           </div>
         </div>
       </header>

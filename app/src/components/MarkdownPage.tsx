@@ -47,24 +47,28 @@ export default function MarkdownPage() {
           <h1>{meta?.title || project}</h1>
           {meta?.subtitle ? <p className="hero__subtitle">{meta.subtitle}</p> : null}
           <div className="hero__cta">
-            <NavLink className="btn" to={`/projects/codeit/${project}`}>
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to={`/projects/codeit/${project}`}
+              end
+            >
               인포그래픽
             </NavLink>
             <NavLink
-              className={({ isActive }) => `btn${isActive ? ' btn--primary' : ''}`}
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
               to={`/projects/codeit/${project}/star`}
               end
             >
               요약
             </NavLink>
             <NavLink
-              className={({ isActive }) => `btn${isActive ? ' btn--primary' : ''}`}
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
               to={`/projects/codeit/${project}/report`}
               end
             >
               보고서
             </NavLink>
-            <NavLink className="btn" to="/projects">
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/projects">
               프로젝트 목록
             </NavLink>
           </div>

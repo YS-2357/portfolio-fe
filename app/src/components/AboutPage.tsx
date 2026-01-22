@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
@@ -28,9 +28,12 @@ export default function AboutPage() {
         <div className="hero__copy">
           <h1>About Me</h1>
           <div className="hero__cta">
-            <Link className="btn" to="/">
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/about" end>
+              About Me
+            </NavLink>
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/" end>
               랜딩
-            </Link>
+            </NavLink>
           </div>
         </div>
       </header>

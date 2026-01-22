@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import { projects } from '../data/projects'
 
 type Params = {
@@ -19,18 +19,34 @@ export default function ProjectIntroPage() {
           <h1>{meta.title}</h1>
           <p className="hero__subtitle">{meta.subtitle}</p>
           <div className="hero__cta">
-            <Link className="btn" to={`/projects/codeit/${meta.slug}`}>
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to={`/projects/codeit/${meta.slug}`}
+              end
+            >
               인포그래픽
-            </Link>
-            <Link className="btn btn--primary-solar" to={`/projects/codeit/${meta.slug}/star`}>
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to={`/projects/codeit/${meta.slug}/star`}
+              end
+            >
               요약
-            </Link>
-            <Link className="btn" to={`/projects/codeit/${meta.slug}/report`}>
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to={`/projects/codeit/${meta.slug}/report`}
+              end
+            >
               보고서
-            </Link>
-            <Link className="btn" to="/projects">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to="/projects"
+              end
+            >
               프로젝트 목록
-            </Link>
+            </NavLink>
           </div>
         </div>
       </header>

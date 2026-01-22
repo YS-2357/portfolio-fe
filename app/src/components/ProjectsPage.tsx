@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { projects } from '../data/projects'
 const fetchText = async (url: string) => {
   const res = await fetch(url)
@@ -49,9 +49,12 @@ export default function ProjectsPage() {
           <p className="hero__eyebrow">Projects</p>
           <h1>프로젝트 하이라이트</h1>
           <div className="hero__cta">
-            <Link className="btn" to="/">
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/projects" end>
+              프로젝트
+            </NavLink>
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/" end>
               랜딩
-            </Link>
+            </NavLink>
           </div>
         </div>
       </header>

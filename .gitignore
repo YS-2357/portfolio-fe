@@ -33,3 +33,6 @@ app/.firebase/
 *.njsproj
 *.sln
 *.sw?
+
+# Notion raw exports
+app/public/content/_notion/intalk/

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 type AwardItem = {
   title: string
   meta: string
@@ -92,9 +92,12 @@ export default function AwardsPage() {
           <p className="hero__eyebrow">수상</p>
           <h1>전체 수상 목록</h1>
           <div className="hero__cta">
-            <Link className="btn" to="/">
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/awards" end>
+              수상
+            </NavLink>
+            <NavLink className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`} to="/" end>
               랜딩
-            </Link>
+            </NavLink>
           </div>
         </div>
       </header>

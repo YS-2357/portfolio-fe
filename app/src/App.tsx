@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { projects } from './data/projects'
 import './App.css'
 
@@ -142,15 +143,28 @@ function App() {
           <p className="hero__eyebrow">M.S. in Mathematics · AI Engineer</p>
           <h1>정영선 포트폴리오</h1>
           <div className="hero__cta">
-            <a className="btn btn--primary-solar" href="/projects">
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to="/"
+              end
+            >
+              랜딩
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to="/projects"
+            >
               프로젝트 보기
-            </a>
+            </NavLink>
             <a className="btn" href="/content/resume/resume.pdf" target="_blank" rel="noreferrer">
               이력서 보기
             </a>
-            <a className="btn" href="/about">
+            <NavLink
+              className={({ isActive }) => `btn${isActive ? ' btn--primary-solar' : ''}`}
+              to="/about"
+            >
               About Me
-            </a>
+            </NavLink>
           </div>
           <div className="contact hero__contact">
             <div className="contact__row">
