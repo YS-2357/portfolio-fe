@@ -25,6 +25,7 @@ React + TypeScript 정적 포트폴리오 사이트와 플로팅 챗봇 UI를 �
 - 프로젝트 이미지: `app/public/asset/images/projects/`
 - Notion 원본 보관: `app/public/content/_notion/`
   - 인포그래픽: `/asset/images/projects/codeit/<project>/infographic.png`
+- 경력 인포그래픽: `/asset/images/intalk/infographic.png`
 
 ## 챗 위젯
 - 화면 측면에 플로팅 UI로 고정.

@@ -4,6 +4,7 @@
 - Profile: `app/public/asset/images/profile/`
 - Skills: `app/public/asset/images/skills/`
 - Projects: `app/public/asset/images/projects/`
+- Experience: `app/public/asset/images/intalk/`
 - Misc: `app/public/asset/images/misc/`
 - Notion 원본: `app/public/content/_notion/` (이미지는 별도 저장 권장)
 
