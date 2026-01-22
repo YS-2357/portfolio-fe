@@ -39,6 +39,12 @@ export default function ExperiencePage() {
       </header>
 
       <section className="section">
+        <div className="experience-hero">
+          <img src="/asset/images/intalk/infographic.png" alt="Intalk infographic" />
+        </div>
+      </section>
+
+      <section className="section">
         {blocks.length === 0 ? (
           <p>내용이 없습니다.</p>
         ) : (
