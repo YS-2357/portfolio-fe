@@ -64,8 +64,8 @@ export default function MarkdownPage() {
             >
               보고서
             </NavLink>
-            <NavLink className="btn" to="/">
-              랜딩
+            <NavLink className="btn" to="/projects">
+              프로젝트 목록
             </NavLink>
           </div>
         </div>
