@@ -343,16 +343,15 @@ body {
   box-shadow: 0 18px 32px rgba(16, 24, 40, 0.18);
 }
 
-.experience-hero {
-  display: flex;
-  justify-content: center;
+.doc-block--media {
+  padding: 16px;
 }
 
-.experience-hero img {
-  width: min(960px, 100%);
-  border-radius: 16px;
+.doc-media img {
+  width: 100%;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  box-shadow: 0 18px 32px rgba(16, 24, 40, 0.18);
+  display: block;
 }
 
 .markdown th,
