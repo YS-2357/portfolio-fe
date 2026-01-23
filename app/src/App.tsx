@@ -342,6 +342,8 @@ function App() {
           <span className="badge badge--soft">Firebase</span>
           <span className="badge badge--soft">YOLO</span>
           <span className="badge badge--soft">Chroma</span>
+          <span className="badge badge--soft">FAISS</span>
+          <span className="badge badge--soft">LLM API</span>
         </div>
       </section>
 
