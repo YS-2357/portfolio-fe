@@ -21,7 +21,9 @@
   - `codeit/<project>/summary.md`
   - `codeit/<project>/star.md`
   - `codeit/<project>/report.md`
-  - 인포그래픽: `app/public/asset/images/projects/codeit/<project>/infographic.png`
+  - `<project>/summary.md` (codeit 외 프로젝트)
+  - 인포그래픽: `app/public/asset/images/projects/<project>/infographic.png`
+  - codeit 인포그래픽: `app/public/asset/images/projects/codeit/<project>/infographic.png`
 
 ## Notion 원본 보관
 - `app/public/content/_notion/` 아래에 Notion 동기화 결과를 유지한다.

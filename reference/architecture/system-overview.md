@@ -23,7 +23,9 @@ React + TypeScript 정적 포트폴리오 사이트를 제공한다.
 - 정적 콘텐츠: `app/public/content/`
 - 프로젝트 이미지: `app/public/asset/images/projects/`
 - Notion 원본 보관: `app/public/content/_notion/`
-  - 인포그래픽: `/asset/images/projects/codeit/<project>/infographic.png`
+- 인포그래픽:
+  - `/asset/images/projects/<project>/infographic.png`
+  - `/asset/images/projects/codeit/<project>/infographic.png`
 - 경력 인포그래픽: `/asset/images/intalk/infographic.png`
 
 ## 유지 사항
