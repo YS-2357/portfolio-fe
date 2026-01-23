@@ -15,7 +15,6 @@ const fetchText = async (url: string) => {
 
 function App() {
   const [intro, setIntro] = useState('문제 정의에서 배포까지 실행하는 개발자')
-  const [chatOpen, setChatOpen] = useState(false)
   const [summaryItems, setSummaryItems] = useState<string[]>([])
   const [projectSummaries, setProjectSummaries] = useState<Record<string, string>>({})
   const [awards, setAwards] = useState({
@@ -346,28 +345,6 @@ function App() {
       </section>
 
     </div>
-    <button className="chat-toggle" type="button" onClick={() => setChatOpen((prev) => !prev)}>
-      {chatOpen ? '닫기' : '챗봇'}
-    </button>
-    {chatOpen && (
-      <div className="chat-panel" role="dialog" aria-label="챗봇">
-        <div className="chat-panel__header">
-          <span>포트폴리오 챗봇</span>
-          <button className="chat-panel__close" onClick={() => setChatOpen(false)} type="button">
-            닫기
-          </button>
-        </div>
-        <div className="chat-panel__body">
-          <p>
-            RAG 챗봇 (구현 중) — 질문하면 관련 페이지로 안내합니다.
-          </p>
-          <div className="chat__input">
-            <span className="chat__placeholder">예: RAG 프로젝트 설명해줘</span>
-            <button className="btn btn--primary-solar">전송</button>
-          </div>
-        </div>
-      </div>
-    )}
     </>
   )
 }
