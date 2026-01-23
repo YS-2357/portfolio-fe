@@ -3,11 +3,12 @@
 ## 멀티 LLM 응답 비교·요약 웹 서비스 | 2025.11 – Ongoing
 - 형태: 사이드 프로젝트
 - 기술: Python, Streamlit, FastAPI, LangChain, LangGraph, Supabase, Upstash, Render
+- LLM API: OpenAI, Anthropic(Claude), Gemini, Perplexity, Mistral, Groq, Cohere, DeepSeek
 - GitHub: https://github.com/YS-2357/compare-ai
 - 요약: 멀티 LLM 병렬 호출과 실시간 스트리밍 기반 응답 비교·요약 서비스 개발
 - 성과:
   - FastAPI·Streamlit 기반 MVP 완성 및 Render 최초 배포
-  - 병렬 호출 파이프라인 구축(OpenAI, Claude, Gemini, Upstage, Perplexity)
+  - 병렬 호출 파이프라인 구축(OpenAI, Anthropic, Gemini, Perplexity, Mistral, Groq, Cohere, DeepSeek)
   - 스트리밍 응답 요약/정렬 후 챗 UI 시각화
   - 사용자 인증(Supabase)·사용량 제한(Upstash) 적용으로 안정성 강화
   - FE/BE 분리 및 배포 구조 정비로 확장성 확보
@@ -26,7 +27,7 @@
 
 ## RFP 문서 요약·질의응답 RAG 서비스 | 2025.05 – 2025.06
 - 형태: 팀 프로젝트(팀장)
-- 기술: Python, Streamlit, FastAPI, LangChain, FAISS, Chroma
+- 기술: Python, Streamlit, FastAPI, LangChain, FAISS, Chroma, pdfplumber
 - GitHub: https://github.com/gyurili/2025-RAG-Project
 - 요약: 정부·기업 RFP 문서 대상 의미 기반 요약/QA 자동화 시스템 구현
 - 성과:
