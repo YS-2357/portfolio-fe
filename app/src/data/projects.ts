@@ -14,7 +14,7 @@ export const projects: ProjectMeta[] = [
     title: 'Compare-AI: 멀티 LLM 응답 비교·요약',
     label: 'LLM',
     imagePath: '/asset/images/projects/compare-ai/infographic.png',
-    summaryPath: '/content/projects/codeit/compare-ai/summary.md',
+    summaryPath: '/content/projects/compare-ai/summary.md',
     cardSummary: '여러 LLM 응답을 스트리밍으로 수집·비교해 요약을 제공하는 서비스',
     subtitle: '멀티 모델 팬아웃·스트리밍·랭킹 파이프라인 설계/구현',
   },
