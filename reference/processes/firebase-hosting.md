@@ -20,3 +20,8 @@
 
 ## 리라이트
 - SPA로 `/index.html` 리라이트를 사용한다.
+
+## 캐시 헤더
+- 이미지 경로는 장기 캐싱을 적용한다.
+  - 대상: `/asset/images/**`
+  - 헤더: `Cache-Control: public,max-age=31536000,immutable`

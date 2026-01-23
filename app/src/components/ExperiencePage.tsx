@@ -58,7 +58,12 @@ export default function ExperiencePage() {
                 </div>
                 {block.title.includes('(주)인톡') && (
                   <div className="doc-media">
-                    <img src="/asset/images/intalk/infographic.png" alt="Intalk infographic" />
+                    <img
+                      src="/asset/images/intalk/infographic.png"
+                      alt="Intalk infographic"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 )}
                 {block.paragraphs.map((text) => (

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { projects } from '../data/projects'
 
@@ -10,6 +11,19 @@ export default function ProjectIntroPage() {
   const meta = projects.find((item) => item.slug === project)
 
   if (!meta) return null
+
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.as = 'image'
+    link.href = meta.imagePath
+    link.setAttribute('fetchpriority', 'high')
+    document.head.appendChild(link)
+
+    return () => {
+      document.head.removeChild(link)
+    }
+  }, [meta.imagePath])
 
   return (
     <div className="landing">
@@ -53,7 +67,13 @@ export default function ProjectIntroPage() {
 
       <section className="section">
         <div className="project-hero">
-          <img src={meta.imagePath} alt={`${meta.title} infographic`} />
+          <img
+            src={meta.imagePath}
+            alt={`${meta.title} infographic`}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
         </div>
       </section>
     </div>
