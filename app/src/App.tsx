@@ -336,6 +336,7 @@ function App() {
           <span className="badge badge--soft">Python</span>
           <span className="badge badge--soft">FastAPI</span>
           <span className="badge badge--soft">LangChain</span>
+          <span className="badge badge--soft">LangGraph</span>
           <span className="badge badge--soft">React</span>
           <span className="badge badge--soft">TypeScript</span>
           <span className="badge badge--soft">Firebase</span>
